@@ -1,19 +1,18 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from '../redux/configurestore';
 import HelloWorld from './HelloWorld'
-class App extends React.Component {
-  render() {
+function App() {
     return (
-      <React.StrictMode>
+      <Provider store={store}>
         <BrowserRouter>
           <Routes>
-            <Route path="/hello" element={<HelloWorld greeting="Hello from App Component" />} />
+            <Route path="/hello" element={<HelloWorld />} />
           </Routes>
         </BrowserRouter>
-      </React.StrictMode>
+      </Provider>
     )
   }
-}
 
 export default App
